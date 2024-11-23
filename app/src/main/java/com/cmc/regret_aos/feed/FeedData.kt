@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 import java.util.Date
 
 data class FeedData(
-    @SerializedName("content") var content: String = "",
+    @SerializedName("regretContent") var content: String = "",
 )

@@ -18,14 +18,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-//    private val apiService: ApiService,add
+    private val apiService: ApiService,
     private val userPreferences: UserPreferences
 ) : ViewModel() {
 
     val feedData = Pager(
         config = PagingConfig(pageSize = 20),
-        pagingSourceFactory = { FeedDataSource() }
-//        pagingSourceFactory = { FeedDataSource(apiService) }
+        pagingSourceFactory = { FeedDataSource(apiService, userPreferences) }
     ).flow.cachedIn(viewModelScope)
 
     private val _birth = MutableLiveData<String>()

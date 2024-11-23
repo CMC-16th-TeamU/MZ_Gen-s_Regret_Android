@@ -1,6 +1,7 @@
 package com.cmc.regret_aos.feed
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -99,6 +100,7 @@ class RetrospectFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
                 viewModel.saveBirth(selectedItem)
+//                Log.d("testLog", "data : ${feedAdapter.snapshot().items}")
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
