@@ -100,7 +100,6 @@ class RetrospectFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
                 viewModel.saveBirth(selectedItem)
-//                Log.d("testLog", "data : ${feedAdapter.snapshot().items}")
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {

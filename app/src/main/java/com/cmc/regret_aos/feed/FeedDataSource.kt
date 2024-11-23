@@ -1,9 +1,12 @@
 package com.cmc.regret_aos.feed
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.cmc.regret_aos.api.ApiService
 import com.cmc.regret_aos.api.UserPreferences
+import okhttp3.MediaType
+import okhttp3.RequestBody
 
 class FeedDataSource(
     private val service: ApiService,
@@ -11,7 +14,7 @@ class FeedDataSource(
 ) : PagingSource<Int, FeedData>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FeedData> {
         return try {
-            val currentPage = params.key ?: 1
+            val currentPage = params.key ?: 0
 
 //            val response = listOf(
 //                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
@@ -34,6 +37,7 @@ class FeedDataSource(
 //                nextKey = if (response.isEmpty()) null else currentPage + 1
 //            )
             val userId = preferences.getUserId()
+
             val response = service.getFeedDataList(userId, currentPage, params.loadSize)
 
             if (response.isSuccessful) {

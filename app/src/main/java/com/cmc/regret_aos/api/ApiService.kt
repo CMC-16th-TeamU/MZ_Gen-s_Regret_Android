@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("regrets/users/")
     suspend fun getFeedDataList(
-        @Body userId: Long,
+        @Query("userId") userId: Long,
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int
     ): Response<PagedResponse<FeedData>>

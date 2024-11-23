@@ -1,5 +1,6 @@
 package com.cmc.regret_aos.feed
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +16,9 @@ import com.cmc.regret_aos.api.ApiService
 import com.cmc.regret_aos.api.UserPreferences
 import javax.inject.Inject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import okhttp3.MediaType
+import okhttp3.RequestBody
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
@@ -26,6 +30,28 @@ class FeedViewModel @Inject constructor(
         config = PagingConfig(pageSize = 20),
         pagingSourceFactory = { FeedDataSource(apiService, userPreferences) }
     ).flow.cachedIn(viewModelScope)
+
+//    fun test() {
+//
+//        Log.d("testLog","testLog 1")
+//        viewModelScope.launch {
+//            val userId = 1L // 예시
+//            val json = """{"userId":$userId}"""
+//            val requestBody = RequestBody.create(MediaType.parse("application/json"), json)
+//
+//            val response = apiService.getFeedDataList(requestBody, 0, 10)
+//            if (response.isSuccessful) {
+//
+//                Log.d("testLog","success ${response.body()} }")
+//                val pagedResponse = response.body()!!
+//                pagedResponse.regrets.forEach {
+//                    println(it.content)
+//                }
+//            } else {
+//                Log.d("testLog","error ")
+//            }
+//        }
+//    }
 
     private val _birth = MutableLiveData<String>()
     val birth: LiveData<String> get() = _birth
