@@ -72,7 +72,7 @@ class RetrospectFragment : Fragment() {
         val fieldSpinner = view.findViewById<Spinner>(R.id.fieldSpinner)
         val sortSpinner = view.findViewById<Spinner>(R.id.sortSpinner)
 
-        val birthItems = listOf("1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999")
+        val birthItems = listOf("1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020")
         val genderItems = listOf("남성", "여성")
         val majorItems = listOf("학생", "프리랜서", "자영업", "직장인", "기타")
         val fieldItems = listOf("IT/통신", "서비스", "제조", "교육", "의료", "건설", "금융/보험", "공공행정/국방")
@@ -99,6 +99,7 @@ class RetrospectFragment : Fragment() {
         birthSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val selectedItem = parent.getItemAtPosition(position).toString()
+
                 viewModel.saveBirth(selectedItem)
             }
 

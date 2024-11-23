@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.GenderFragment">
+    tools:context=".login.FirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/iconView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_main"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="200dp"/>
+
     <TextView
+        android:id="@+id/greetingView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@drawable/texx_radius"
+        android:padding="15dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="안녕하세요,\n저는 당신의 ‘회고 도우미’입니다 :)"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconView"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/mailView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/texx_radius"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#222222"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="남성"
+        app:layout_constraintEnd_toStartOf="@+id/feMailView"
+        app:layout_constraintTop_toBottomOf="@+id/greetingView"/>
+
+    <TextView
+        android:id="@+id/feMailView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/texx_radius"
+        android:gravity="center"
+        android:backgroundTint="#222222"
+        android:text="여성"
+        app:layout_constraintStart_toEndOf="@+id/mailView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greetingView"/>
+
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_selector"
+        android:layout_marginHorizontal="30dp"
+        android:text="다음"
+        android:padding="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

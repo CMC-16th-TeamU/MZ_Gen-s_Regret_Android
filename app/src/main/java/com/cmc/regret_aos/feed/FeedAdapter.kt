@@ -1,5 +1,6 @@
 package com.cmc.regret_aos.feed
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,6 +64,16 @@ class LeftViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
 
     fun bind(feedData: FeedData) {
+        val layoutInflater = LayoutInflater.from(itemView.context)
+        val view = layoutInflater.inflate(R.layout.alert_dialog, null)
+
+        view.findViewById<TextView>(R.id.contentView).text = feedData.content
+
+        itemView.setOnClickListener {
+            AlertDialog.Builder(itemView.context)
+                .setView(view)
+                .show()
+        }
         contentTextView.text = feedData.content
     }
 }
@@ -71,6 +82,17 @@ class RightViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
 
     fun bind(feedData: FeedData) {
+        val layoutInflater = LayoutInflater.from(itemView.context)
+        val view = layoutInflater.inflate(R.layout.alert_dialog, null)
+
+        view.findViewById<TextView>(R.id.contentView).text = feedData.content
+
+        itemView.setOnClickListener {
+            AlertDialog.Builder(itemView.context)
+                .setView(view)
+                .show()
+        }
+
         contentTextView.text = feedData.content
     }
 }

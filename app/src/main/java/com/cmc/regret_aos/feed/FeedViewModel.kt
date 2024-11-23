@@ -31,27 +31,6 @@ class FeedViewModel @Inject constructor(
         pagingSourceFactory = { FeedDataSource(apiService, userPreferences) }
     ).flow.cachedIn(viewModelScope)
 
-//    fun test() {
-//
-//        Log.d("testLog","testLog 1")
-//        viewModelScope.launch {
-//            val userId = 1L // 예시
-//            val json = """{"userId":$userId}"""
-//            val requestBody = RequestBody.create(MediaType.parse("application/json"), json)
-//
-//            val response = apiService.getFeedDataList(requestBody, 0, 10)
-//            if (response.isSuccessful) {
-//
-//                Log.d("testLog","success ${response.body()} }")
-//                val pagedResponse = response.body()!!
-//                pagedResponse.regrets.forEach {
-//                    println(it.content)
-//                }
-//            } else {
-//                Log.d("testLog","error ")
-//            }
-//        }
-//    }
 
     private val _birth = MutableLiveData<String>()
     val birth: LiveData<String> get() = _birth

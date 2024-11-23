@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/vertical_gradiunt"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:itemActiveIndicatorStyle="@color/transparent"
         app:menu="@menu/main_nav_item"/>
 
 

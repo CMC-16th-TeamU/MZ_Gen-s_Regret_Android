@@ -17,12 +17,62 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.cmc.regret_aos.login.SecondFragment"
+        android:name="com.cmc.regret_aos.login.LoginFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SeconFragment_to_genderFragment"
+            app:destination="@id/genderFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.cmc.regret_aos.login.GenderFragment"
+        android:label="gender_fragment"
+        tools:layout="@layout/fragment_gender">
+        <action
+            android:id="@+id/action_genderFragment_to_birthFragment"
+            app:destination="@id/birthFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/birthFragment"
+        android:name="com.cmc.regret_aos.login.BirthFragment"
+        android:label="third_fragment"
+        tools:layout="@layout/fragment_birth">
+        <action
+            android:id="@+id/action_birthFragment_to_majorFragment"
+            app:destination="@id/majorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/majorFragment"
+        android:name="com.cmc.regret_aos.login.MajorFragment"
+        android:label="major_fragment"
+        tools:layout="@layout/fragment_major">
+
+        <action
+            android:id="@+id/action_majorFragment_to_fieldFragment"
+            app:destination="@id/fieldFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fieldFragment"
+        android:name="com.cmc.regret_aos.login.FieldFragment"
+        android:label="field_fragment"
+        tools:layout="@layout/fragment_field">
+
+        <action
+            android:id="@+id/action_fieldFragment_to_completeFragment"
+            app:destination="@id/completeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/completeFragment"
+        android:name="com.cmc.regret_aos.login.CompleteFragment"
+        android:label="complete_fragment"
+        tools:layout="@layout/fragment_complete"
+        />
+
 </navigation>

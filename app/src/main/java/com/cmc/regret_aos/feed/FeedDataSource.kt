@@ -16,41 +16,30 @@ class FeedDataSource(
         return try {
             val currentPage = params.key ?: 0
 
-            val response = listOf(
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-                FeedData("content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 content1 "),
-            )
-            LoadResult.Page(
-                data = response,
-                prevKey = if (currentPage == 1) null else currentPage - 1,
-                nextKey = if (response.isEmpty()) null else currentPage + 1
-            )
-//            val userId = preferences.getUserId()
+            val userId = preferences.getUserId()
 
-//            val response = service.getFeedDataList(userId, currentPage, params.loadSize)
-//
-//            if (response.isSuccessful) {
-//                val pagedResponse = response.body()!!
-//                LoadResult.Page(
-//                    data = pagedResponse.regrets,
-//                    prevKey = if (currentPage == 1) null else currentPage - 1,
-//                    nextKey = if (currentPage == pagedResponse.totalPage) null else currentPage + 1
-//                )
-//            } else {
-//                LoadResult.Error(Exception("Network error"))
-//            }
+            Log.d("testLog", "start")
+
+            val response = service.getFeedDataList(userId, currentPage, params.loadSize)
+
+            Log.d("testLog", "response: ${response}")
+            if (response.isSuccessful) {
+                val customResponse = response.body()!!
+                Log.d("testLog", "customResponse: ${customResponse}")
+                val pagedResponse = customResponse.data
+                LoadResult.Page(
+                    data = pagedResponse.regrets,
+                    prevKey = if (currentPage == 1) null else currentPage - 1,
+                    nextKey = if (currentPage == pagedResponse.totalPage) null else currentPage + 1
+                )
+            } else {
+
+                Log.d("testLog", "fail ${response.errorBody()}")
+                Log.d("testLog", "fail ${response.body()}")
+                LoadResult.Error(Exception("Network error"))
+            }
         } catch (exception: Exception) {
+            Log.d("testLog", "exception: ${exception}")
             LoadResult.Error(exception)
         }
     }

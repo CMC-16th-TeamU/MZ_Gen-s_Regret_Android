@@ -6,6 +6,14 @@ import javax.inject.Inject
 class UserPreferences @Inject constructor(context: Context) {
     private val preferences = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
 
+    fun saveUserData(userId: Long, birth: String, gender: String, major: String, field: String ) {
+        saveUserId(userId)
+        saveBirth(birth)
+        saveGender(gender)
+        saveMajor(major)
+        saveField(field)
+    }
+
     fun saveUserId(userId: Long) {
         preferences.edit().putLong("user_id", userId).apply()
     }
