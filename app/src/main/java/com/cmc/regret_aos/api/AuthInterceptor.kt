@@ -3,11 +3,13 @@ package com.cmc.regret_aos.api
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class AuthInterceptor(private val accessToken: String) : Interceptor {
+class UserIdInterceptor(private val userPreferences: UserPreferences) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
+        val userId = userPreferences.getUserId()
+
         val newRequest = originalRequest.newBuilder()
-            .addHeader("Authorization", "Bearer $accessToken")
+            .addHeader("User-ID", userId)
             .build()
         return chain.proceed(newRequest)
     }

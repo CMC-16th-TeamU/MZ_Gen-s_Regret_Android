@@ -1,9 +1,13 @@
 package com.cmc.regret_aos
 
+import android.content.Context
 import com.cmc.regret_aos.api.AuthInterceptor
+import com.cmc.regret_aos.api.UserIdInterceptor
+import com.cmc.regret_aos.api.UserPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -13,14 +17,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAccessToken(): String {
-        // 여기에 실제로 토큰을 반환하는 로직을 추가합니다. 예: SharedPreferences에서 가져오기
-        return "your_access_token_here"
+    fun provideUserPreferences(@ApplicationContext context: Context): UserPreferences {
+        return UserPreferences(context)
     }
 
     @Provides
     @Singleton
-    fun provideAuthInterceptor(accessToken: String): AuthInterceptor {
-        return AuthInterceptor(accessToken)
+    fun provideUserIdInterceptor(userPreferences: UserPreferences): UserIdInterceptor {
+        return UserIdInterceptor(userPreferences)
     }
+
 }
