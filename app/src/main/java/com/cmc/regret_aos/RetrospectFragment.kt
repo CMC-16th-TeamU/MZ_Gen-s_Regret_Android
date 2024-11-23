@@ -33,7 +33,6 @@ class RetrospectFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_retrospect, container, false)
     }
 
@@ -58,13 +57,6 @@ class RetrospectFragment : Fragment() {
                     feedAdapter.submitData(it)
                 }
             }
-        }
-
-        view.findViewById<Button>(R.id.testBtn1).setOnClickListener {
-            Log.d("testLog", "Button Click 1")
-            Log.d("testLog", "Data ${feedAdapter.snapshot().items.size}")
-            Log.d("testLog", "Data ${feedAdapter.snapshot().items}")
-            Log.d("testLog", "Button Click 2")
         }
     }
 
