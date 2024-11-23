@@ -3,8 +3,12 @@ package com.cmc.regret_aos
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.cmc.regret_aos.feed.RetrospectFragment
+import com.cmc.regret_aos.myPage.MyPageFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val customFragmentManager = supportFragmentManager
