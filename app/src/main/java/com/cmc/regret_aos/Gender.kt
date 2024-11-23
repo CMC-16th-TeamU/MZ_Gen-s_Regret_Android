@@ -1,0 +1,17 @@
+package com.cmc.regret_aos
+
+enum class Gender {
+    MALE, FEMALE
+}
+
+enum class Major {
+    STUDENT, FREELANCER, SELF_EMPLOYED, EMPLOYEE, OTHER
+}
+
+enum class Field {
+    IT_COMMUNICATION, SERVICE, MANUFACTURING, EDUCATION, HEALTHCARE, CONSTRUCTION, FINANCE_INSURANCE, PUBLIC_ADMIN_DEFENSE
+}
+
+enum class Sort {
+    ASC, DESC
+}

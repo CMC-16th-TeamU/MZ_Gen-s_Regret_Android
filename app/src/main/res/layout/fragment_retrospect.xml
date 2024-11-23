@@ -9,8 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="20dp">
-
+        android:paddingStart="20dp">
 
         <LinearLayout
             android:id="@+id/feedFilterLayout"
@@ -20,14 +19,34 @@
             app:layout_constraintBottom_toTopOf="@+id/feedRecyclerView"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/testBtn1"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/birthSpinner"
+                android:layout_width="84dp"
+
                 android:layout_height="wrap_content"/>
 
-            <Button
-                android:id="@+id/testBtn2"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/genderSpinner"
+                android:layout_marginStart="8dp"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/majorSpinner"
+                android:layout_marginStart="8dp"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/fieldSpinner"
+                android:layout_marginStart="8dp"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/sortSpinner"
+                android:layout_marginStart="8dp"
+                android:layout_width="77dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
