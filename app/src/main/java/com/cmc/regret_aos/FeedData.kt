@@ -1,9 +1,8 @@
 package com.cmc.regret_aos
 
+import com.google.gson.annotations.SerializedName
 import java.util.Date
 
 data class FeedData(
-    val author: String,
-    val content: String,
-    val created: Date,
+    @SerializedName("content") var content: String = "",
 )

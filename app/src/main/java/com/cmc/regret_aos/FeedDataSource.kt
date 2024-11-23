@@ -2,51 +2,27 @@ package com.cmc.regret_aos
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.cmc.regret_aos.api.ApiService
 import java.util.Date
 
 class FeedDataSource(
-//    private val service: ApiService
+    private val service: ApiService
 ) : PagingSource<Int, FeedData>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FeedData> {
         return try {
-            val page = params.key ?: 1
-//            val response = service.getFeedList(page)
+            val currentPage = params.key ?: 1
+            val response = service.getFeedDataList(currentPage, params.loadSize)
 
-            // dummy data
-            val response = listOf(
-                FeedData(
-                    author = "author",
-                    content = "아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회... 아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회...",
-                    created = Date()
-                ),
-                FeedData(
-                    author = "author",
-                    content = "아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회... 아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회...",
-                    created = Date()
-                ),
-                FeedData(
-                    author = "author",
-                    content = "아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회... 아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회...",
-                    created = Date()
-                ),
-                FeedData(
-                    author = "author",
-                    content = "아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회... 아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회...",
-                    created = Date()
-                ),
-                FeedData(
-                    author = "author",
-                    content = "아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회... 아 진짜 대외활동 안한거 너무 후회돼ㅠ CMC 할껄 왜 안했지 진짜아아아아아아 진짜 대외활동 안한거 너무 후회...",
-                    created = Date()
+            if (response.isSuccessful) {
+                val pagedResponse = response.body()!!
+                LoadResult.Page(
+                    data = pagedResponse.data,
+                    prevKey = if (currentPage == 1) null else currentPage - 1,
+                    nextKey = if (currentPage == pagedResponse.totalPage) null else currentPage + 1
                 )
-            )
-
-
-            LoadResult.Page(
-                data = response,
-                prevKey = if (page == 1) null else page - 1,
-                nextKey = if (response.isEmpty()) null else page + 1
-            )
+            } else {
+                LoadResult.Error(Exception("Network error"))
+            }
         } catch (exception: Exception) {
             LoadResult.Error(exception)
         }
