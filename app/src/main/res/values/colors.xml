@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="regret_blue">#FFFFFFFF</color>
+    <color name="target_yellow">#FFFFFFFF</color>
+
+    <color name="gray_1">#8E8E93</color>
+    <color name="gray_2">#AEAEB2</color>
+    <color name="gray_3">#C7C7CC</color>
+    <color name="gray_4">#D1D1D6</color>
+    <color name="gray_5">#E5E5EA</color>
+    <color name="gray_6">#F2F2F7</color>
 </resources>
