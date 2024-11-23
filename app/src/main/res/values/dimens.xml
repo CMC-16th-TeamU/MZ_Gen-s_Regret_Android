@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <style name="MenuItemTextStyle"> <item name="android:textColor">@color/gray_2</item> </style>
+</resources>

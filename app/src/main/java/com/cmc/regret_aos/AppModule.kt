@@ -20,10 +20,10 @@ object AppModule {
         return UserPreferences(context)
     }
 
-    @Provides
-    @Singleton
-    fun provideUserIdInterceptor(userPreferences: UserPreferences): UserIdInterceptor {
-        return UserIdInterceptor(userPreferences)
-    }
+//    @Provides
+//    @Singleton
+//    fun provideUserIdInterceptor(userPreferences: UserPreferences): UserIdInterceptor {
+//        return UserIdInterceptor(userPreferences)
+//    }
 
 }

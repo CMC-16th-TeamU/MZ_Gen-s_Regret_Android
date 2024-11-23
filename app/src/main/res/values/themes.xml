@@ -6,7 +6,7 @@
     </style>
 
     <style name="Theme.Regret_aos" parent="Base.Theme.Regret_aos" />
-    
+
     <style name="Heading">
         <item name="android:textSize">32sp</item>
         <item name="fontFamily">@font/interop_bold</item>
