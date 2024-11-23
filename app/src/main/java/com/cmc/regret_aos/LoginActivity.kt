@@ -17,6 +17,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.cmc.regret_aos.databinding.ActivityLoginBinding
+import android.util.Patterns
 
 class LoginActivity : AppCompatActivity() {
 
@@ -68,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
         logButton.setOnClickListener {
             val inputText = editText.text.toString()
             if (inputText.isNotEmpty()) {
-                Log.d("MainActivity", "User Input: $inputText")
+                Log.d("test_debug", "User Input: $inputText")
                 Toast.makeText(this, "로그에 출력되었습니다.", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "문자열을 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -88,12 +89,12 @@ class LoginActivity : AppCompatActivity() {
             .setView(input)
             .setPositiveButton("확인") { _, _ ->
                 val email = input.text.toString()
-//                if (isValidEmail(email)) {
-//                    emailTextView.text = "이메일: $email"
-//                    Toast.makeText(this, "유효한 이메일입니다.", Toast.LENGTH_SHORT).show()
-//                } else {
-//                    Toast.makeText(this, "유효하지 않은 이메일입니다.", Toast.LENGTH_SHORT).show()
-//                }
+                if (isValidEmail(email)) {
+                    emailTextView.text = "이메일: $email"
+                    Toast.makeText(this, "유효한 이메일입니다.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "유효하지 않은 이메일입니다.", Toast.LENGTH_SHORT).show()
+                }
             }
             .setNegativeButton("취소") { dialog, _ ->
                 dialog.dismiss()
@@ -101,6 +102,9 @@ class LoginActivity : AppCompatActivity() {
             .create()
 
         dialog.show()
+    }
+    private fun isValidEmail(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     // 나이 입력 다이얼로그
@@ -135,5 +139,4 @@ class LoginActivity : AppCompatActivity() {
 
         dialog.show()
     }
-
 }
