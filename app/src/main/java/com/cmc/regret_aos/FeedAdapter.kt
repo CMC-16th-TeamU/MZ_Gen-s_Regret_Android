@@ -8,17 +8,43 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
-class FeedAdapter : PagingDataAdapter<FeedData, FeedViewHolder>(FeedDiffUtil()) {
+class FeedAdapter : PagingDataAdapter<FeedData, RecyclerView.ViewHolder>(FeedDiffUtil()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.feed_item_layout, parent, false)
-        return FeedViewHolder(view)
+    companion object {
+        private const val LEFT_VIEW = 1
+        private const val RIGHT_VIEW = 2
     }
 
-    override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
+    override fun getItemViewType(position: Int): Int {
+        return if (position % 2 == 0) LEFT_VIEW else RIGHT_VIEW
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        val layoutInflater = LayoutInflater.from(parent.context)
+
+        return when(viewType) {
+            LEFT_VIEW -> {
+                val leftView = layoutInflater.inflate(R.layout.feed_left_item_layout, parent, false)
+                LeftViewHolder(leftView)
+            }
+            RIGHT_VIEW -> {
+                val rightView = layoutInflater.inflate(R.layout.feed_right_tem_layout, parent, false)
+                RightViewHolder(rightView)
+            }
+            else -> {
+                val leftView = layoutInflater.inflate(R.layout.feed_left_item_layout, parent, false)
+                LeftViewHolder(leftView)
+            }
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position) ?: return
-        holder.bind(item)
+        when (holder) {
+            is LeftViewHolder -> holder.bind(item)
+            is RightViewHolder -> holder.bind(item)
+        }
     }
 }
 
@@ -32,14 +58,18 @@ class FeedDiffUtil : DiffUtil.ItemCallback<FeedData>() {
     }
 }
 
-class FeedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val authorTextView: TextView = itemView.findViewById(R.id.authorTextView)
+class LeftViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
-    private val createdDateTextView: TextView = itemView.findViewById(R.id.createdDateTextView)
 
     fun bind(feedData: FeedData) {
-        authorTextView.text = feedData.author
         contentTextView.text = feedData.content
-        createdDateTextView.text = feedData.created.toString() // You might want to format the date here
+    }
+}
+
+class RightViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val contentTextView: TextView = itemView.findViewById(R.id.contentTextView)
+
+    fun bind(feedData: FeedData) {
+        contentTextView.text = feedData.content
     }
 }
