@@ -18,6 +18,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.cmc.regret_aos.databinding.ActivityLoginBinding
 import android.util.Patterns
+import android.widget.RadioButton
+import android.widget.RadioGroup
 
 class LoginActivity : AppCompatActivity() {
 
@@ -42,7 +44,37 @@ class LoginActivity : AppCompatActivity() {
             showAgeInputDialog(ageTextView)
         }
 
-        // 3. 문자열 입력 제한
+        // 3. 유저의 성별과 상태 출력
+        val radioGroupGender = findViewById<RadioGroup>(R.id.RadioGroupGender)
+        val radioGroupUserStatus = findViewById<RadioGroup>(R.id.radioGroupUserStatus)
+        val userInfoButton = findViewById<Button>(R.id.userInfo_Button)
+
+        // 유저 정보 제출 버튼 클릭 이벤트
+        userInfoButton.setOnClickListener {
+            // 성별 선택 상태 가져오기
+            val selectedGenderId = radioGroupGender.checkedRadioButtonId
+            val selectedGender = if (selectedGenderId != -1) {
+                val radioButtonGender = findViewById<RadioButton>(selectedGenderId)
+                radioButtonGender.text.toString()
+            } else {
+                "선택되지 않음"
+            }
+
+            // 유저 상태 선택 상태 가져오기
+            val selectedStatusId = radioGroupUserStatus.checkedRadioButtonId
+            val selectedStatus = if (selectedStatusId != -1) {
+                val radioButtonStatus = findViewById<RadioButton>(selectedStatusId)
+                radioButtonStatus.text.toString()
+            } else {
+                "선택되지 않음"
+            }
+
+            // 로그 출력
+            Log.d("test_debug", "선택된 성별: $selectedGender")
+            Log.d("test_debug", "선택된 상태: $selectedStatus")
+        }
+
+        // 5. 문자열 입력 제한
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
