@@ -15,6 +15,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "KAKAO_NATIVE_APP_KEY", properties["KAKAO_NATIVE_APP_KEY"].toString())
+
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
