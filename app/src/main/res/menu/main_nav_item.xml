@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_retrospect"
+        android:icon="@drawable/ic_home"
+        android:title="Retrospect" />
+
+    <item
+        android:id="@+id/action_my_page"
+        android:icon="@drawable/ic_my_page"
+        android:title="My Page" />
+
+</menu>
