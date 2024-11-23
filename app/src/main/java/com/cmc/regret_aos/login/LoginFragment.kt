@@ -67,7 +67,9 @@ class LoginFragment : Fragment() {
             lifecycleScope.launch {
                 viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                     val userId = viewModel.getUserId()
-                    if(userId != 0L) {
+                    val email = viewModel.getUserEmail()
+                    viewModel.getUserId()
+                    if(userId != 0L && email == binding.idView.text.toString()) {
                         startActivity(
                             Intent(activity, MainActivity::class.java)
                         )

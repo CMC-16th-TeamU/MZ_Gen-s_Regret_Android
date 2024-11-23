@@ -27,6 +27,14 @@ class LoginViewModel @Inject constructor(
         return userPreferences.getUserId()
     }
 
+    fun getUserEmail(): String {
+        return userPreferences.getUserMail() ?: ""
+    }
+
+    fun setUserEmail(email: String) {
+        userPreferences.setUserMail(email)
+    }
+
     // 추가적인 로그인 관련 로직을 여기에 작성할 수 있습니다.
 
     private val _email = MutableLiveData<String>()

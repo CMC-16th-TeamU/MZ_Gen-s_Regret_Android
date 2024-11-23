@@ -22,6 +22,14 @@ class UserPreferences @Inject constructor(context: Context) {
         return preferences.getLong("user_id", 0L)
     }
 
+    fun getUserMail(): String? {
+        return preferences.getString("email", null)
+    }
+
+    fun setUserMail(mail: String) {
+        preferences.edit().putString("email", mail).apply()
+    }
+
     fun saveBirth(birth: String) {
         preferences.edit().putString("birth", birth).apply()
     }
