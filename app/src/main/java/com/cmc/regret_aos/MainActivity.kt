@@ -1,9 +1,10 @@
 package com.cmc.regret_aos
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,5 +46,6 @@ class MainActivity : AppCompatActivity() {
         val transaction = customFragmentManager.beginTransaction()
             .add(R.id.main_container, RetrospectFragment())
         transaction.commit()
+
     }
 }

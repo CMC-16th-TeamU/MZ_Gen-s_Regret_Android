@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <!-- 나이 입력을 표시하는 TextView -->
+
+        <!-- 사용자 입력 EditText -->
+
+
+        <!-- 이메일 입력 TextView -->
+
+        <TextView
+            android:id="@+id/ageTextView"
+            android:layout_width="390dp"
+            android:layout_height="59dp"
+            android:background="@android:color/darker_gray"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="나이를 입력하려면 여기를 클릭하세요"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="411dp"
+            android:layout_height="189dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="top|start"
+            android:hint="다이어를 입력하세요"
+            android:inputType="text"
+            android:maxLines="15" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="71dp"
+            android:background="@android:color/holo_blue_dark"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="이메일을 입력하려면 여기를 클릭하세요"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <!-- 로그 출력 버튼 -->
+        <Button
+            android:id="@+id/logButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다이어리 출력"
+            android:layout_marginTop="8dp" />
+
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
