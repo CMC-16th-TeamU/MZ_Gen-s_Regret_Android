@@ -3,7 +3,6 @@ package com.cmc.regret_aos
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.cmc.regret_aos.api.ApiService
-import java.util.Date
 
 class FeedDataSource(
     private val service: ApiService

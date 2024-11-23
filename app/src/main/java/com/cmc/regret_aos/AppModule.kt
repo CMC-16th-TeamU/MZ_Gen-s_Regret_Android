@@ -1,7 +1,6 @@
 package com.cmc.regret_aos
 
 import android.content.Context
-import com.cmc.regret_aos.api.AuthInterceptor
 import com.cmc.regret_aos.api.UserIdInterceptor
 import com.cmc.regret_aos.api.UserPreferences
 import dagger.Module
