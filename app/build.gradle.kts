@@ -48,4 +48,8 @@ dependencies {
     // navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.1")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.1")
+
+    // Paging3
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.paging:paging-runtime:3.1.1")
 }
