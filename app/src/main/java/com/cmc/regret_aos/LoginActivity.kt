@@ -139,4 +139,11 @@ class LoginActivity : AppCompatActivity() {
 
         dialog.show()
     }
+
+
+    // 라디오 버튼 남, 여 출력
+
+
+    // 라디오 버튼 유저 상태 출력  (학생, 직장인)
+
 }

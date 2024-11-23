@@ -16,10 +16,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <!-- 디이어리 입력 EditText -->
-
-        <!-- 로그 출력 버튼 -->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,7 +24,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <!-- 나이 입력을 표시하는 TextView -->
+            <!-- 이메일 입력 TextView -->
             <TextView
                 android:id="@+id/emailTextView"
                 android:layout_width="wrap_content"
@@ -41,6 +37,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
+            <!-- 나이 입력을 표시하는 TextView -->
             <TextView
                 android:id="@+id/ageTextView"
                 android:layout_width="390dp"
@@ -49,22 +46,76 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="8dp"
-                android:text="나이를 입력하려면 여기를 클릭하세요"
+                android:text="나이를 입력 하려면 여기를 클릭하세요"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
-            <!-- 이메일 입력 TextView -->
+            <!-- 성별 입력 EditText -->
+            <RadioGroup
+                android:id="@+id/RadioGroupGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <RadioButton
+                    android:id="@+id/rg_btn1_male"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="남" />
+
+                <RadioButton
+                    android:id="@+id/rg_btn2_female"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="여2" />
+
+            </RadioGroup>
+
+            <!-- 유저 상태 직장인/상태 입력 EditText -->
+            <RadioGroup
+                android:id="@+id/radioGroupUserStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rg_btn1_student"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="학생" />
+
+                <RadioButton
+                    android:id="@+id/rg_btn2_employee"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="직장인" />
+
+            </RadioGroup>
+
+            <!-- 사용자 정보 출력 버튼 -->
+            <Button
+                android:id="@+id/userInfo_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="유저 정보 제출" />
+
+            <!-- 사용자 입력 EditText -->
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="411dp"
-                android:layout_height="189dp"
-                android:background="@android:drawable/editbox_background"
-                android:gravity="top|start"
-                android:hint="다이어리를 입력하세요"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="문자열을 입력하세요"
                 android:inputType="text"
-                android:maxLines="15" />
+                android:maxLines="5"
+                android:gravity="top|start"
+                android:background="@android:drawable/editbox_background" />
 
+            <!-- 다이어리 로그 출력 버튼 -->
             <Button
                 android:id="@+id/logButton"
                 android:layout_width="wrap_content"
