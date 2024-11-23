@@ -1,4 +1,4 @@
-package com.cmc.regret_aos
+package com.cmc.regret_aos.feed
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

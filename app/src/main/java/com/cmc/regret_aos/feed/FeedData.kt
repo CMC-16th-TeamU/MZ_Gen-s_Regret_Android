@@ -1,4 +1,4 @@
-package com.cmc.regret_aos
+package com.cmc.regret_aos.feed
 
 import com.google.gson.annotations.SerializedName
 import java.util.Date

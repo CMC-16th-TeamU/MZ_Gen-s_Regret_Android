@@ -1,4 +1,4 @@
-package com.cmc.regret_aos
+package com.cmc.regret_aos.feed
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.cmc.regret_aos.R
 
 class FeedAdapter : PagingDataAdapter<FeedData, RecyclerView.ViewHolder>(FeedDiffUtil()) {
 

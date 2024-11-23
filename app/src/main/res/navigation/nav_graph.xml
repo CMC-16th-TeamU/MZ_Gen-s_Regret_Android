@@ -6,13 +6,13 @@
 
     <fragment
         android:id="@+id/retrospectFragment"
-        android:name="com.cmc.regret_aos.RetrospectFragment"
+        android:name="com.cmc.regret_aos.feed.RetrospectFragment"
         android:label="fragment_retrospect"
         tools:layout="@layout/fragment_retrospect" />
 
     <fragment
         android:id="@+id/myPageFragment"
-        android:name="com.cmc.regret_aos.MyPageFragment"
+        android:name="com.cmc.regret_aos.myPage.MyPageFragment"
         android:label="fragment_my_page"
         tools:layout="@layout/fragment_my_page" />
 

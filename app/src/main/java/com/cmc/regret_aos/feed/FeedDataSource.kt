@@ -1,4 +1,4 @@
-package com.cmc.regret_aos
+package com.cmc.regret_aos.feed
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
