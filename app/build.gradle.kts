@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -52,4 +54,9 @@ dependencies {
     // Paging3
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.paging:paging-runtime:3.1.1")
+
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.28-alpha")
+    kapt("com.google.dagger:hilt-android-compiler:2.28-alpha")
+
 }
